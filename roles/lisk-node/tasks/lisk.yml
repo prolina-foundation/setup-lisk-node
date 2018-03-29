@@ -1,0 +1,55 @@
+- name: Packages installed
+  become: true
+  apt: name={{item}} state=present
+  with_items:
+  - autoconf
+  - git
+  - jq
+  - libpq-dev
+  - libtool
+  - npm
+
+- name: Install "pm2" node.js package globally.
+  become: true
+  npm:
+    name: pm2
+    global: yes
+
+- name: Workspace created
+  become: true
+  file:
+    path=/workspace
+    state=directory
+    owner={{ ansible_ssh_user }}
+    group={{ ansible_ssh_user }}
+
+- name: Checkout git repos · Github (HTTP)
+  git:
+    repo={{ item.repo }}
+    dest=/workspace/{{ item.folder }}
+    version={{ item.branch }}
+    force=true
+  with_items:
+  - { repo: 'https://github.com/LiskHQ/lisk.git', branch: 'testnet-master', folder: 'lisk' }
+  - { repo: 'https://github.com/LiskHQ/lisk-scripts.git', branch: 'master', folder: 'lisk-scripts' }
+
+- name: Link lisk.sh and friends
+  file:
+    src: /workspace/lisk-scripts/packaged/{{ item }}
+    dest: /workspace/lisk/{{ item }}
+    state: link
+  with_items:
+  - etc
+  - env.sh
+  - lisk.sh
+  - shared.sh
+
+- name: Make lisk.sh executable
+  file:
+    path: /workspace/lisk-scripts/packaged/lisk.sh
+    mode: 0755 # executable
+
+- name: Install Lisk node packages based on package.json
+  npm:
+    path: /workspace/lisk
+    state: present

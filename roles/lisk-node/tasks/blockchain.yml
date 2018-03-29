@@ -1,0 +1,10 @@
+- name: Blockchain snapshot downloaded
+  get_url:
+    url: https://testnet-snapshot.mylisk.com/blockchain.db.gz
+    dest: /workspace/lisk/blockchain.db.gz
+
+- name: Restore from snapshot
+  command: ./lisk.sh rebuild -f blockchain.db.gz
+  args:
+    chdir: /workspace/lisk
+    creates: /workspace/lisk/logs/lisk.log

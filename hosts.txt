@@ -1,0 +1,2 @@
+[lisk-node1]
+lisk-tutorial.local ansible_ssh_user=simon

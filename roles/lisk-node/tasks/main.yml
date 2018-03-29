@@ -1,0 +1,3 @@
+- include: postgres.yml
+- include: lisk.yml
+- include: blockchain.yml

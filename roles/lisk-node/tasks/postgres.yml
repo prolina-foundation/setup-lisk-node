@@ -1,0 +1,15 @@
+- name: Database packages installed
+  become: true
+  apt: name={{item}} state=present
+  with_items:
+  - postgresql
+  - python3-psycopg2 # for the postgresql_user Ansible module
+
+- name: Create database and database user
+  become: true
+  become_user: postgres
+  postgresql_user:
+    name: "{{ ansible_ssh_user }}"
+    encrypted: true
+    password: password
+    role_attr_flags: CREATEDB

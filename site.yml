@@ -1,0 +1,6 @@
+- name: Lisk node
+  hosts: [lisk-node1]
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  roles:
+  - { role: lisk-node, tags: [ 'lisk-node' ] }  
