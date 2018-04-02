@@ -4,7 +4,7 @@
     dest: /workspace/lisk/blockchain.db.gz
 
 - name: Restore from snapshot
-  command: ./lisk.sh rebuild -f blockchain.db.gz
+  shell: ./lisk.sh rebuild -f blockchain.db.gz && ./lisk.sh stop_node
   args:
     chdir: /workspace/lisk
     creates: /workspace/lisk/logs/lisk.log
