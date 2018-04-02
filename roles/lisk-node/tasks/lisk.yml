@@ -65,3 +65,7 @@
   systemd:
     name: lisk-node
     enabled: yes
+
+- name: Set Lisk node port
+  set_fact:
+    lisk_node_port: 7000

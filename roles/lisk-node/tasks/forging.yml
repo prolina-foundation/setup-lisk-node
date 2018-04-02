@@ -1,0 +1,27 @@
+- name: Packages installed
+  become: true
+  apt: name={{item}} state=present
+  with_items:
+  - curl
+  - jq
+
+- name: Copy start_forging.sh/stop_forging.sh
+  template:
+    src: "forging/{{item}}"
+    dest: /workspace
+    mode: 0700
+  with_items:
+  - start_forging.sh
+  - stop_forging.sh
+
+- name: Create directory ~/.lisk_node
+  file:
+    path: ~/.lisk_node
+    state: directory
+    mode: 0700
+
+- name: Create empty file ~/.lisk_node/secret
+  file:
+    path: ~/.lisk_node/secret
+    state: touch
+    mode: 0600

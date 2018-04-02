@@ -1,3 +1,4 @@
 - include: postgres.yml
 - include: lisk.yml
 - include: blockchain.yml
+- include: forging.yml
