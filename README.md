@@ -11,3 +11,7 @@ Lisk should now be running and syncing. Check status on the remote machine:
 $ cd /workspace/lisk
 $ ./lisk.sh logs
 ```
+
+## Ansible
+
+Ansible 2.2+ is required on the administrator's machine.
