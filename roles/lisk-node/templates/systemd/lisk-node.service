@@ -1,0 +1,13 @@
+[Unit]
+Description=Lisk Node
+Requires=postgresql.service
+
+[Service]
+Type=forking
+User={{ ansible_ssh_user }}
+Group={{ ansible_ssh_user }}
+ExecStart=/workspace/lisk/lisk.sh start_node
+ExecStop=/workspace/lisk/lisk.sh stop_node
+
+[Install]
+WantedBy=multi-user.target

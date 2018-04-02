@@ -53,3 +53,15 @@
   npm:
     path: /workspace/lisk
     state: present
+
+- name: Create Lisk node service
+  become: true
+  template:
+    src: systemd/lisk-node.service
+    dest: /etc/systemd/system
+
+- name: Enable Lisk node service
+  become: true
+  systemd:
+    name: lisk-node
+    enabled: yes
