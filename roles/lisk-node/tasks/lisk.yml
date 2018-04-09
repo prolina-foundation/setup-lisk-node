@@ -50,6 +50,11 @@
     path: /workspace/lisk-scripts/packaged/lisk.sh
     mode: 0755 # executable
 
+- name: Directory 'logs' created
+  file:
+    path=/workspace/lisk/logs
+    state=directory
+
 - name: Install Lisk node packages based on package.json
   npm:
     path: /workspace/lisk
