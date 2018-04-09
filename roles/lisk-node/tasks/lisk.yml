@@ -66,6 +66,6 @@
     name: lisk-node
     enabled: yes
 
-- name: Set Lisk node port
+- name: Set Lisk node API port
   set_fact:
-    lisk_node_port: 7000
+    lisk_node_api_port: 7000
