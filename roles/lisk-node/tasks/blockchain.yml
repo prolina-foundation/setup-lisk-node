@@ -1,10 +1,25 @@
+- name: Copy dump_snapshot.sh/restore_snapshot.sh
+  copy:
+    src: "blockchain/{{item}}"
+    dest: /workspace
+    mode: 0700
+  with_items:
+  - dump_snapshot.sh
+  - restore_snapshot.sh
+
+- name: Directory 'snapshots' created
+  file:
+    path=/workspace/snapshots
+    state=directory
+
 - name: Blockchain snapshot downloaded
   get_url:
-    url: https://testnet-snapshot.mylisk.com/blockchain.db.gz
-    dest: /workspace/lisk/blockchain.db.gz
+    url: http://lisk.prolina.org/snapshots/lisk_test_h4928450_2018-04-11T21:50:33Z.pg_dump_dump
+    checksum: "sha256:9310328318ca0a34f881c6a9394d8ee363ecaa675250b9e8b001a282983a34f3"
+    dest: /workspace/snapshots/lisk_test_snapshot.pg_dump_dump
 
 - name: Restore from snapshot
-  shell: ./lisk.sh rebuild -f blockchain.db.gz && ./lisk.sh stop_node
+  shell: ./restore_snapshot.sh /workspace/snapshots/lisk_test_snapshot.pg_dump_dump && touch /workspace/snapshots/restored.yes
   args:
-    chdir: /workspace/lisk
-    creates: /workspace/lisk/logs/lisk.log
+    chdir: /workspace
+    creates: /workspace/snapshots/restored.yes
