@@ -2,7 +2,16 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
-ORIGINAL_DB_NAME="lisk_test"
+function print_usage() {
+    echo "$0 DB_NAME"
+}
+
+if [ "$#" -ne 1 ]; then
+    print_usage
+    exit 1
+fi
+
+ORIGINAL_DB_NAME="$1"
 SNAPSHOT_TIME="$(date --utc +%Y-%m-%dT%H-%M-%SZ)"
 SNAPSHOT_DB_NAME="${ORIGINAL_DB_NAME}_snapshot${SNAPSHOT_TIME}_pid$$"
 

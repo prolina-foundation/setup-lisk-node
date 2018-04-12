@@ -2,9 +2,17 @@
 set -o errexit -o nounset -o pipefail
 which shellcheck > /dev/null && (shellcheck -x "$0" || shellcheck "$0")
 
-SNAPSHOT_PATH="$1"
+function print_usage() {
+    echo "$0 DB_NAME SNAPSHOT_PATH"
+}
 
-TARGET_DB_NAME="lisk_test"
+if [ "$#" -ne 2 ]; then
+    print_usage
+    exit 1
+fi
+
+TARGET_DB_NAME="$1"
+SNAPSHOT_PATH="$2"
 
 CORES=$(sysctl -n hw.ncpu 2> /dev/null || nproc 2> /dev/null || echo 1)
 echo "Detected $CORES cores"

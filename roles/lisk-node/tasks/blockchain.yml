@@ -21,7 +21,7 @@
     tmp_dest: /tmp
 
 - name: Restore from snapshot
-  shell: ./restore_snapshot.sh /workspace/snapshots/lisk_test_snapshot.pg_dump_dump && touch /workspace/snapshots/restored.yes
+  shell: "./restore_snapshot.sh {{ blockchain_database_name }} /workspace/snapshots/lisk_test_snapshot.pg_dump_dump && touch /workspace/snapshots/restored.yes"
   args:
     chdir: /workspace
     creates: /workspace/snapshots/restored.yes
