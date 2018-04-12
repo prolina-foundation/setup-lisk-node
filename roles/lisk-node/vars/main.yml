@@ -1,9 +1,9 @@
-snapshot_url: http://lisk.prolina.org/snapshots/testnet/lisk_test_h4931992_2018-04-12T08-21-54Z.pg_dump_dump
-snapshot_sha256: 89e0fbb2ede5ade7da0030ed66c6288ef8a581a64caff0d32f105ce96fd9b401
-snapshot_download_filename: lisk_test_snapshot.pg_dump_dump
+snapshot_url: http://lisk.prolina.org/snapshots/betanet/lisk_beta_h37862_2018-04-12T13-44-57Z.pg_dump_dump
+snapshot_sha256: 37bc22bc11dacece2ae2b471234d28bbb89983f4c855c6e05a2032cfea300ef3
+snapshot_download_filename: lisk_beta_snapshot.pg_dump_dump
 
-blockchain_database_name: lisk_test
+blockchain_database_name: lisk_beta
 
-lisk_node_api_port: 7000
-lisk_node_core_branch: testnet-master
-lisk_node_scripts_branch: master
+lisk_node_api_port: 5000
+lisk_node_core_branch: testnet-development
+lisk_node_scripts_branch: 0.2.0
