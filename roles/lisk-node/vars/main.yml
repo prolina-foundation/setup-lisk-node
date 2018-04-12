@@ -1,4 +1,4 @@
-snapshot_url: http://lisk.prolina.org/snapshots/lisk_test_h4931992_2018-04-12T08-21-54Z.pg_dump_dump
+snapshot_url: http://lisk.prolina.org/snapshots/testnet/lisk_test_h4931992_2018-04-12T08-21-54Z.pg_dump_dump
 snapshot_sha256: 89e0fbb2ede5ade7da0030ed66c6288ef8a581a64caff0d32f105ce96fd9b401
 snapshot_download_filename: lisk_test_snapshot.pg_dump_dump
 
