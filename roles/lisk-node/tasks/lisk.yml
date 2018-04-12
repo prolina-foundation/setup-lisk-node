@@ -31,8 +31,8 @@
     version={{ item.branch }}
     force=true
   with_items:
-  - { repo: 'https://github.com/LiskHQ/lisk.git', branch: 'testnet-master', folder: 'lisk' }
-  - { repo: 'https://github.com/LiskHQ/lisk-scripts.git', branch: 'master', folder: 'lisk-scripts' }
+  - { repo: 'https://github.com/LiskHQ/lisk.git', branch: '{{ lisk_node_core_branch }}', folder: 'lisk' }
+  - { repo: 'https://github.com/LiskHQ/lisk-scripts.git', branch: '{{ lisk_node_scripts_branch }}', folder: 'lisk-scripts' }
 
 - name: Link lisk.sh and friends
   file:
