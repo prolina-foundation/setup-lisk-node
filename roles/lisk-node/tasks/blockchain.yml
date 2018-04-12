@@ -14,8 +14,8 @@
 
 - name: Blockchain snapshot downloaded
   get_url:
-    url: http://lisk.prolina.org/snapshots/lisk_test_h4928450_2018-04-11T21:50:33Z.pg_dump_dump
-    checksum: "sha256:9310328318ca0a34f881c6a9394d8ee363ecaa675250b9e8b001a282983a34f3"
+    url: http://lisk.prolina.org/snapshots/lisk_test_h4931992_2018-04-12T08-21-54Z.pg_dump_dump
+    checksum: "sha256:89e0fbb2ede5ade7da0030ed66c6288ef8a581a64caff0d32f105ce96fd9b401"
     dest: /workspace/snapshots/lisk_test_snapshot.pg_dump_dump
     # use tmp_dest to work around https://github.com/ansible/ansible/issues/18894
     tmp_dest: /tmp
