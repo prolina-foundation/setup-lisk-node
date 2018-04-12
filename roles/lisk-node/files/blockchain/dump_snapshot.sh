@@ -20,7 +20,7 @@ echo "Snapshot height is $HEIGHT"
 SNAPSHOT_FILE_NAME="${ORIGINAL_DB_NAME}_h${HEIGHT}_${SNAPSHOT_TIME}.pg_dump_dump"
 
 echo "Dumping snapshot to file $SNAPSHOT_FILE_NAME ..."
-pg_dump -Fcustom "$SNAPSHOT_DB_NAME" -f "$SNAPSHOT_FILE_NAME"
+pg_dump -Fcustom -f "$SNAPSHOT_FILE_NAME" "$SNAPSHOT_DB_NAME"
 
 echo "Removing snapshot database ..."
 dropdb "$SNAPSHOT_DB_NAME"
