@@ -25,3 +25,9 @@
   args:
     chdir: /workspace
     creates: /workspace/snapshots/restored.yes
+
+- name: Create cron_dump_snapshot.sh
+  template:
+    src: blockchain/cron_dump_snapshot.sh
+    dest: /workspace
+    mode: 0700
