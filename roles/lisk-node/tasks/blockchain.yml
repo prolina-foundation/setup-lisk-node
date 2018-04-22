@@ -31,3 +31,14 @@
     src: blockchain/cron_dump_snapshot.sh
     dest: /workspace
     mode: 0700
+
+- name: Setup cron job for snapshots
+  cron:
+    name: snapshots
+    # Run every 12 hours
+    month: "*"
+    day: "*"
+    hour: "*/12"
+    minute: "0"
+    user: "{{ ansible_ssh_user }}"
+    job: /workspace/cron_dump_snapshot.sh
