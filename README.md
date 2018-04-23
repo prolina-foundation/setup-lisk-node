@@ -15,3 +15,9 @@ $ ./lisk.sh logs
 ## Ansible
 
 Ansible 2.2+ is required on the administrator's machine.
+
+## Ubuntu version
+
+Ubuntu 16.04 LTS comes with PostgreSQL 9.5 which is below the the minimum
+required by Lisk. Since we want to use the main repositories' Postgres package,
+Ubuntu 16.04 and below are not supported.
