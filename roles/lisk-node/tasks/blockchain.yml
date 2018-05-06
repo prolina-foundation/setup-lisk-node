@@ -47,3 +47,4 @@
     minute: "0"
     user: "{{ ansible_ssh_user }}"
     job: /workspace/cron_dump_snapshot.sh
+    disabled: "{{ snapshot_cronjob_disabled }}"
