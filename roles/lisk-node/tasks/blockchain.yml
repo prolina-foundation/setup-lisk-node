@@ -14,7 +14,7 @@
 
 - name: Directory 'snapshots/ansible' created
   file:
-    path=/workspace/snapshots
+    path=/workspace/snapshots/ansible
     state=directory
 
 - name: Blockchain snapshot downloaded
