@@ -1,0 +1,5 @@
+- name: start lisk-node
+  become: true
+  systemd:
+    name: lisk-node
+    state: started

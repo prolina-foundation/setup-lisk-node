@@ -30,6 +30,7 @@
   args:
     chdir: /workspace
     creates: /workspace/snapshots/ansible/restored.yes
+  notify: start lisk-node
 
 - name: Create cron_dump_snapshot.sh
   template:
