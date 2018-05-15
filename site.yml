@@ -1,5 +1,5 @@
 - name: Lisk node
-  hosts: [lisk-node1]
+  hosts: [mainnet, testnet, betanet]
   vars:
     ansible_python_interpreter: /usr/bin/python3
   roles:
