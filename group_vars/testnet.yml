@@ -1,0 +1,10 @@
+snapshot_url: http://lisk.prolina.org/snapshots/testnet/lisk_test_h5026316_2018-04-23T10-00-01Z.pg_dump_dump
+snapshot_sha256: d89ea20835a928cce18b5361770779837238f7847b2851700b6a6f19a1e6c48b
+snapshot_download_filename: lisk_test_snapshot.pg_dump_dump
+snapshot_cronjob_disabled: true
+
+blockchain_database_name: lisk_test
+
+lisk_node_api_port: 7000
+lisk_node_core_branch: testnet-master
+lisk_node_scripts_branch: master

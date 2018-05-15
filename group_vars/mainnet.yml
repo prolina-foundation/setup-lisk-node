@@ -1,0 +1,10 @@
+snapshot_url: http://lisk.prolina.org/snapshots/mainnet/lisk_main_h5891985_2018-05-03T22-00-02Z.pg_dump_dump
+snapshot_sha256: fdaaa30b85e98817d8747ed77ff359bfee20386e42f863bd39a9392f0bc5fb47
+snapshot_download_filename: lisk_main_snapshot.pg_dump_dump
+snapshot_cronjob_disabled: true
+
+blockchain_database_name: lisk_main
+
+lisk_node_api_port: 8000
+lisk_node_core_branch: master
+lisk_node_scripts_branch: master

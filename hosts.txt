@@ -1,2 +1,6 @@
-[lisk-node1]
+[mainnet]
+
+[testnet]
 lisk-tutorial.local ansible_ssh_user=simon
+
+[betanet]

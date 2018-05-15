@@ -1,6 +1,7 @@
 snapshot_url: http://lisk.prolina.org/snapshots/betanet/lisk_beta_h72476_2018-04-26T10-00-01Z.pg_dump_dump
 snapshot_sha256: 66571b8962270948714f9fa655a33fbdab909066f2b13d5a94676eac74d7f773
 snapshot_download_filename: lisk_beta_snapshot.pg_dump_dump
+snapshot_cronjob_disabled: true
 
 blockchain_database_name: lisk_beta
 

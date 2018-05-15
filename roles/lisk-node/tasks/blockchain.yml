@@ -12,19 +12,25 @@
     path=/workspace/snapshots
     state=directory
 
+- name: Directory 'snapshots/ansible' created
+  file:
+    path=/workspace/snapshots/ansible
+    state=directory
+
 - name: Blockchain snapshot downloaded
   get_url:
     url: "{{ snapshot_url }}"
     checksum: "sha256:{{ snapshot_sha256 }}"
-    dest: /workspace/snapshots/{{ snapshot_download_filename }}
+    dest: /workspace/snapshots/ansible/{{ snapshot_download_filename }}
     # use tmp_dest to work around https://github.com/ansible/ansible/issues/18894
     tmp_dest: /tmp
 
 - name: Restore from snapshot
-  shell: "./restore_snapshot.sh {{ blockchain_database_name }} /workspace/snapshots/{{ snapshot_download_filename }} && touch /workspace/snapshots/restored.yes"
+  shell: "./restore_snapshot.sh {{ blockchain_database_name }} /workspace/snapshots/ansible/{{ snapshot_download_filename }} && touch /workspace/snapshots/ansible/restored.yes"
   args:
     chdir: /workspace
-    creates: /workspace/snapshots/restored.yes
+    creates: /workspace/snapshots/ansible/restored.yes
+  notify: start lisk-node
 
 - name: Create cron_dump_snapshot.sh
   template:
@@ -42,3 +48,4 @@
     minute: "0"
     user: "{{ ansible_ssh_user }}"
     job: /workspace/cron_dump_snapshot.sh
+    disabled: "{{ snapshot_cronjob_disabled }}"
