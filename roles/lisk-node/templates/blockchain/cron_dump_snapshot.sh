@@ -7,7 +7,7 @@ DIR=$(mktemp -d)
     echo "Using temp dir $DIR ..."
     cd "$DIR"
     /workspace/dump_snapshot.sh {{ blockchain_database_name }}
-    FILES=(*.pg_dump_dump); FILE="${FILES[0]}"; sha256sum "$FILE" > "$FILE.sha256"
+    FILES=(*.gz); FILE="${FILES[0]}"; sha256sum "$FILE" > "$FILE.sha256"
     mv ./* /workspace/snapshots
 )
 
