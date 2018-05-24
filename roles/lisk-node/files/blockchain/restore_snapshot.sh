@@ -27,7 +27,4 @@ echo "Creating empty database $TARGET_DB_NAME ..."
 createdb "$TARGET_DB_NAME"
 
 echo "Restoring snapshot ..."
-# Use --schema=public to avoid
-# could not execute query: ERROR:  must be owner of extension plpgsql
-# Command was: COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-pg_restore -Fcustom --schema=public --no-privileges --no-owner -j "$JOBS" -d "$TARGET_DB_NAME" "$SNAPSHOT_PATH"
+gunzip -fcq "$SNAPSHOT_PATH" | psql --quiet --dbname "$TARGET_DB_NAME"
