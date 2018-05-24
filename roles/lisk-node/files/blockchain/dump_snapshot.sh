@@ -26,10 +26,10 @@ psql -d "$SNAPSHOT_DB_NAME" -c 'delete from peers;'
 HEIGHT=$(psql -d "$SNAPSHOT_DB_NAME" -t -c 'SELECT height FROM blocks ORDER BY height DESC LIMIT 1;' | xargs)
 echo "Snapshot height is $HEIGHT"
 
-SNAPSHOT_FILE_NAME="${ORIGINAL_DB_NAME}_h${HEIGHT}_${SNAPSHOT_TIME}.pg_dump_dump"
+SNAPSHOT_FILE_NAME="${ORIGINAL_DB_NAME}_h${HEIGHT}_${SNAPSHOT_TIME}.gz"
 
 echo "Dumping snapshot to file $SNAPSHOT_FILE_NAME ..."
-pg_dump -Fcustom -f "$SNAPSHOT_FILE_NAME" "$SNAPSHOT_DB_NAME"
+pg_dump --no-owner "$SNAPSHOT_DB_NAME" | gzip > "$SNAPSHOT_FILE_NAME"
 
 echo "Removing snapshot database ..."
 dropdb "$SNAPSHOT_DB_NAME"
