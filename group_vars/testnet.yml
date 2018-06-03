@@ -1,5 +1,5 @@
-snapshot_url: http://lisk.prolina.org/snapshots/testnet/lisk_test_h298_2018-05-22T19-23-09Z.gz
-snapshot_sha256: 7f7b0a332bde2d548d8922cee4b712f1edde6c7253c8877b2d70e0caf7c3830f
+snapshot_url: http://lisk.prolina.org/snapshots/testnet/lisk_test_h5010462_2018-05-26T05-00-01Z.gz
+snapshot_sha256: 6db4fb61afe9405bed31813e5e4a9a746a0c9255aade7c8ab0af8ca9cc6c7860
 snapshot_download_filename: lisk_test_snapshot.gz
 snapshot_cronjob_disabled: true
 
