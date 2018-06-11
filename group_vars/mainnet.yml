@@ -1,6 +1,6 @@
-snapshot_url: http://lisk.prolina.org/snapshots/mainnet/lisk_main_h5891985_2018-05-03T22-00-02Z.pg_dump_dump
-snapshot_sha256: fdaaa30b85e98817d8747ed77ff359bfee20386e42f863bd39a9392f0bc5fb47
-snapshot_download_filename: lisk_main_snapshot.pg_dump_dump
+snapshot_url: http://lisk.prolina.org/snapshots/mainnet/lisk_main_backup-6143123.gz
+snapshot_sha256: 2e62e6250b5a36ac20af01e83fffb762cc18ad814fbcd468607826c623fdecc4
+snapshot_download_filename: lisk_main_snapshot.gz
 snapshot_cronjob_disabled: true
 
 blockchain_database_name: lisk_main
