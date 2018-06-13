@@ -27,7 +27,7 @@ RETURN_JSON=$(curl \
     --silent --show-error \
     -X PUT \
     -H "Content-Type: application/json" \
-    -d "{\"publicKey\": \"$PUBKEY\", \"decryptionKey\": \"$SECRET\"}" \
+    -d "{\"forging\": true, \"publicKey\": \"$PUBKEY\", \"password\": \"$SECRET\"}" \
     http://localhost:{{ lisk_node_api_port }}/api/node/status/forging
 )
 
