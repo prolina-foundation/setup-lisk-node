@@ -5,14 +5,13 @@
   - curl
   - jq
 
-- name: Copy start_forging.sh/stop_forging.sh
+- name: Copy start_forging.sh
   template:
     src: "forging/{{item}}"
     dest: /workspace
     mode: 0700
   with_items:
   - start_forging.sh
-  - stop_forging.sh
 
 - name: Create directory ~/.lisk_node
   file:
@@ -20,8 +19,11 @@
     state: directory
     mode: 0700
 
-- name: Create empty file ~/.lisk_node/secret
+- name: Create empty file ~/.lisk_node/pubkey, ~/.lisk_node/secret
   file:
-    path: ~/.lisk_node/secret
+    path: ~/.lisk_node/{{ item }}
     state: touch
     mode: 0600
+  with_items:
+  - pubkey
+  - secret
