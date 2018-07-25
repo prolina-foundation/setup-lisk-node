@@ -14,12 +14,6 @@ fi
 TARGET_DB_NAME="$1"
 SNAPSHOT_PATH="$2"
 
-CORES=$(sysctl -n hw.ncpu 2> /dev/null || nproc 2> /dev/null || echo 1)
-echo "Detected $CORES cores"
-
-JOBS=$(( CORES * 2 ))
-echo "Using $JOBS parallel restore jobs"
-
 echo "Removing current database $TARGET_DB_NAME if it exists ..."
 dropdb --if-exists "$TARGET_DB_NAME"
 
