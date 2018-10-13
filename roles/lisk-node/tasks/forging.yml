@@ -1,9 +1,10 @@
 - name: Packages installed
   become: true
-  apt: name={{item}} state=present
-  with_items:
-  - curl
-  - jq
+  apt:
+    name:
+    - curl
+    - jq
+    state: present
 
 - name: Copy start_forging.sh
   template:

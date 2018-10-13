@@ -1,16 +1,17 @@
 - name: Packages installed
   become: true
-  apt: name={{item}} state=present
-  with_items:
-  - autoconf
-  - automake
-  - build-essential
-  - git
-  - jq
-  - libpq-dev
-  - libtool
-  - libz-dev # for lisk 1.0.0 dependency uws
-  - npm
+  apt:
+    name:
+    - autoconf
+    - automake
+    - build-essential
+    - git
+    - jq
+    - libpq-dev
+    - libtool
+    - libz-dev # for lisk 1.0.0 dependency uws
+    - npm
+    state: present
 
 - name: Install "pm2" node.js package globally.
   become: true
