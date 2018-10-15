@@ -10,7 +10,6 @@
     - libpq-dev
     - libtool
     - libz-dev # for lisk 1.0.0 dependency uws
-    - npm
     state: present
 
 - name: Install "pm2" node.js package globally.
@@ -54,6 +53,12 @@
     path: /workspace/lisk-scripts/packaged/lisk.sh
     mode: 0755 # executable
 
+- name: Write config.json
+  copy:
+    src: config_testnet.json
+    dest: /workspace/lisk/config.json
+    mode: 0644
+
 - name: Directory 'logs' created
   file:
     path=/workspace/lisk/logs
@@ -63,6 +68,12 @@
   npm:
     path: /workspace/lisk
     state: present
+
+- name: Add lisk_network.sh to profile.d
+  become: true
+  template:
+    src: profile.d/lisk_network.sh
+    dest: /etc/profile.d/lisk_network.sh
 
 - name: Create Lisk node service
   become: true
