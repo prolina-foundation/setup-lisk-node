@@ -1,10 +1,13 @@
 - name: Add an apt signing key, will not download if present
+  become: true
   apt_key:
     id: 9FD3B784BC1C6FC31A8A0A1C1655A0AB68576280
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     state: present
 
-- apt_repository:
+- name: Add nodesource.com repo
+  become: true
+  apt_repository:
     repo: deb https://deb.nodesource.com/node_8.x bionic main
     state: present
 
