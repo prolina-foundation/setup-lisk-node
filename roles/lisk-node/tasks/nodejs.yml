@@ -16,4 +16,5 @@
   apt:
     name:
     - nodejs
+    - python-dev # for node-gyp, see https://github.com/lovell/sharp/issues/1087
     state: present
