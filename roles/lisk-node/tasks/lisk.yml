@@ -55,7 +55,7 @@
 
 - name: Write config.json
   copy:
-    src: config_testnet.json
+    src: "{{ lisk_node_config }}"
     dest: /workspace/lisk/config.json
     mode: 0644
 
