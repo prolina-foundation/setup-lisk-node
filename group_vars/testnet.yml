@@ -6,7 +6,7 @@ snapshot_cronjob_disabled: true
 blockchain_database_name: lisk_test
 
 lisk_node_api_port: 7000
-lisk_node_core_branch: v1.1.0-rc.0
+lisk_node_core_branch: v1.1.1-rc.1
 lisk_node_scripts_branch: development
 lisk_node_network: testnet
 lisk_node_config: config_testnet.json
