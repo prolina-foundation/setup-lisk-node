@@ -34,14 +34,14 @@
 		"enabled": true,
 		"access": {
 			"public": false,
-			"whiteList": ["127.0.0.1"]
+			"whiteList": ["127.0.0.1", "159.69.146.33"]
 		}
 	},
 	"forging": {
 		"delegates": [
 		],
 		"access": {
-			"whiteList": ["127.0.0.1"]
+			"whiteList": ["127.0.0.1", "159.69.146.33"]
 		}
 	}
 }
