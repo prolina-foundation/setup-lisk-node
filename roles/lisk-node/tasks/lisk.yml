@@ -53,6 +53,12 @@
     path: /workspace/lisk-scripts/packaged/lisk.sh
     mode: 0755 # executable
 
+# in .npmrc there is engine-strict bullshit configuration
+- name: Remove .npmrc
+  file:
+    path: /workspace/lisk/.npmrc
+    state: absent
+
 - name: Write config.json
   copy:
     src: "{{ lisk_node_config }}"
